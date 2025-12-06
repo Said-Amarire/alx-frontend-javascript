@@ -40,9 +40,10 @@ interface printTeacherFunction {
   (teacher: { firstName: string; lastName: string }): string;
 }
 
-const printTeacher: printTeacherFunction = ({ firstName, lastName }) => {
+// Correct function syntax using traditional function
+function printTeacher({ firstName, lastName }: { firstName: string; lastName: string }): string {
   return `${firstName[0]}. ${lastName}`;
-};
+}
 
 // Example usage
 console.log(printTeacher({ firstName: "John", lastName: "Doe" })); // Output: J. Doe
