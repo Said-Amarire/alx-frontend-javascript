@@ -1,21 +1,18 @@
 // Task 5: Advanced types Part 1
 
-// DirectorInterface
-export interface DirectorInterface {
+interface DirectorInterface {
   workFromHome(): string;
   getCoffeeBreak(): string;
   workDirectorTasks(): string;
 }
 
-// TeacherInterface
-export interface TeacherInterface {
+interface TeacherInterface {
   workFromHome(): string;
   getCoffeeBreak(): string;
   workTeacherTasks(): string;
 }
 
-// Director class
-export class Director implements DirectorInterface {
+class Director implements DirectorInterface {
   workFromHome(): string {
     return 'Working from home';
   }
@@ -29,8 +26,7 @@ export class Director implements DirectorInterface {
   }
 }
 
-// Teacher class
-export class Teacher implements TeacherInterface {
+class Teacher implements TeacherInterface {
   workFromHome(): string {
     return 'Cannot work from home';
   }
@@ -44,8 +40,7 @@ export class Teacher implements TeacherInterface {
   }
 }
 
-// createEmployee function
-export function createEmployee(salary: number | string): Director | Teacher {
+function createEmployee(salary: number | string): Director | Teacher {
   if (salary < 500) {
     return new Teacher();
   }
@@ -54,13 +49,11 @@ export function createEmployee(salary: number | string): Director | Teacher {
 
 // Task 6: Functions specific to employees
 
-// Type predicate to check if employee is Director
-export function isDirector(employee: Director | Teacher): employee is Director {
+function isDirector(employee: Director | Teacher): employee is Director {
   return (employee as Director).workDirectorTasks !== undefined;
 }
 
-// executeWork function
-export function executeWork(employee: Director | Teacher): string {
+function executeWork(employee: Director | Teacher): string {
   if (isDirector(employee)) {
     return employee.workDirectorTasks();
   } else {
@@ -72,7 +65,7 @@ export function executeWork(employee: Director | Teacher): string {
 
 export type Subjects = 'Math' | 'History';
 
-export function teachClass(todayClass: Subjects): string {
+export function teachClass(todayClass:Subjects): string {
   if (todayClass === 'Math') {
     return 'Teaching Math';
   }
@@ -81,3 +74,7 @@ export function teachClass(todayClass: Subjects): string {
   }
   return '';
 }
+
+// Example usage
+console.log(teachClass('Math'));    // Teaching Math
+console.log(teachClass('History')); // Teaching History
