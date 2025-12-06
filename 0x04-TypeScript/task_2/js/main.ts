@@ -69,7 +69,6 @@ function executeWork(employee: Director | Teacher): string {
 }
 
 
-
 // Task 7: String literal types
 
 export type Subjects = 'Math' | 'History';
@@ -77,7 +76,8 @@ export type Subjects = 'Math' | 'History';
 export function teachClass(todayClass: Subjects): string {
   if (todayClass === 'Math') {
     return 'Teaching Math';
-  } else if (todayClass === 'History') {
+  }
+  if (todayClass === 'History') {
     return 'Teaching History';
   }
   return '';
