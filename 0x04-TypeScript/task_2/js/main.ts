@@ -52,12 +52,6 @@ function createEmployee(salary: number | string): Director | Teacher {
   return new Director();
 }
 
-// Example usage Task 5
-console.log(createEmployee(200));   // Teacher
-console.log(createEmployee(1000));  // Director
-console.log(createEmployee('$500')); // Director
-
-// -----------------------------------
 // Task 6: Functions specific to employees
 
 // Type predicate to check if employee is Director
@@ -74,6 +68,6 @@ function executeWork(employee: Director | Teacher): string {
   }
 }
 
-// Example usage Task 6
-console.log(executeWork(createEmployee(200)));  // Output: Getting to work
-console.log(executeWork(createEmployee(1000))); // Output: Getting to director tasks
+// Example usage
+console.log(executeWork(createEmployee(200)));  // Getting to work
+console.log(executeWork(createEmployee(1000))); // Getting to director tasks
