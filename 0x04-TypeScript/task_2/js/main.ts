@@ -81,7 +81,3 @@ export function teachClass(todayClass: Subjects): string {
   }
   return '';
 }
-
-// Example usage
-console.log(teachClass('Math'));    // Teaching Math
-console.log(teachClass('History')); // Teaching History
