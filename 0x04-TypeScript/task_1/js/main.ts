@@ -1,3 +1,4 @@
+// Teacher interface
 interface Teacher {
   readonly firstName: string;
   readonly lastName: string;
@@ -7,6 +8,7 @@ interface Teacher {
   [key: string]: any;
 }
 
+// Example Teacher
 const teacher3: Teacher = {
   firstName: 'John',
   lastName: 'Doe',
@@ -17,12 +19,13 @@ const teacher3: Teacher = {
 
 console.log(teacher3);
 
-// Correct interface name: Directors
-interface Directors extends Teacher {
+// Task 2: Director interface (singular name!)
+interface Director extends Teacher {
   numberOfReports: number;
 }
 
-const director1: Directors = {
+// Example Director
+const director1: Director = {
   firstName: 'John',
   lastName: 'Doe',
   fullTimeEmployee: true,
