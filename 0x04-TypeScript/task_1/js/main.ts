@@ -40,9 +40,9 @@ interface printTeacherFunction {
   (teacher: { firstName: string; lastName: string }): string;
 }
 
-// Correct function syntax using traditional function
+// Traditional function syntax, exact return string required
 function printTeacher({ firstName, lastName }: { firstName: string; lastName: string }): string {
-  return `${firstName[0]}. ${lastName}`;
+  return `${firstName}. ${lastName}`;
 }
 
 // Example usage
