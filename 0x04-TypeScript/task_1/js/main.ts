@@ -1,11 +1,11 @@
-// Teacher interface
+// Task 1: Teacher interface
 interface Teacher {
   readonly firstName: string;
   readonly lastName: string;
   fullTimeEmployee: boolean;
   location: string;
   yearsOfExperience?: number;
-  [key: string]: any;
+  [key: string]: any; // allows dynamic properties like contract
 }
 
 // Example Teacher
@@ -19,7 +19,7 @@ const teacher3: Teacher = {
 
 console.log(teacher3);
 
-// Director interface
+// Task 2: Director interface extends Teacher
 interface Director extends Teacher {
   numberOfReports: number;
 }
@@ -37,12 +37,12 @@ console.log(director1);
 
 // Task 3: printTeacher function
 interface printTeacherFunction {
-  (firstName: string, lastName: string): string;
+  (teacher: { firstName: string; lastName: string }): string;
 }
 
-const printTeacher: printTeacherFunction = (firstName, lastName) => {
-  return `${firstName} ${lastName}`;
+const printTeacher: printTeacherFunction = ({ firstName, lastName }) => {
+  return `${firstName[0]}. ${lastName}`;
 };
 
 // Example usage
-console.log(printTeacher("John", "Doe")); // Output: John Doe
+console.log(printTeacher({ firstName: "John", lastName: "Doe" })); // Output: J. Doe
