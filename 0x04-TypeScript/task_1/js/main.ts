@@ -5,10 +5,9 @@ interface Teacher {
   fullTimeEmployee: boolean;
   location: string;
   yearsOfExperience?: number;
-  [key: string]: any; // allows dynamic properties like contract
+  [key: string]: any;
 }
 
-// Example Teacher
 const teacher3: Teacher = {
   firstName: 'John',
   lastName: 'Doe',
@@ -24,7 +23,6 @@ interface Director extends Teacher {
   numberOfReports: number;
 }
 
-// Example Director
 const director1: Director = {
   firstName: 'John',
   lastName: 'Doe',
@@ -40,35 +38,18 @@ interface printTeacherFunction {
   (teacher: { firstName: string; lastName: string }): string;
 }
 
-// Traditional function syntax, exact return string required
 function printTeacher({ firstName, lastName }: { firstName: string; lastName: string }): string {
-  return `${firstName}. ${lastName}`;
+  return `${firstName[0]}. ${lastName}`;
 }
 
-// Example usage
 console.log(printTeacher({ firstName: "John", lastName: "Doe" })); // Output: J. Doe
 
-// -----------------------------------
 // Task 4: StudentClass
-
-// Interface for the constructor arguments
-interface StudentConstructor {
-  firstName: string;
-  lastName: string;
-}
-
-// Interface for the class
-interface StudentClassInterface {
-  workOnHomework(): string;
-  displayName(): string;
-}
-
-// Class implementing the interface
-class StudentClass implements StudentClassInterface {
+class StudentClass {
   firstName: string;
   lastName: string;
 
-  constructor({ firstName, lastName }: StudentConstructor) {
+  constructor(firstName: string, lastName: string) {
     this.firstName = firstName;
     this.lastName = lastName;
   }
@@ -83,6 +64,6 @@ class StudentClass implements StudentClassInterface {
 }
 
 // Example usage
-const student = new StudentClass({ firstName: 'Alice', lastName: 'Johnson' });
-console.log(student.displayName());    // Output: Alice
-console.log(student.workOnHomework()); // Output: Currently working
+const student = new StudentClass('Alice', 'Johnson');
+console.log(student.displayName());    // Alice
+console.log(student.workOnHomework()); // Currently working
