@@ -1,18 +1,18 @@
-// DirectorInterface with required methods
+// DirectorInterface
 interface DirectorInterface {
   workFromHome(): string;
   getCoffeeBreak(): string;
   workDirectorTasks(): string;
 }
 
-// TeacherInterface with required methods
+// TeacherInterface
 interface TeacherInterface {
   workFromHome(): string;
   getCoffeeBreak(): string;
   workTeacherTasks(): string;
 }
 
-// Director class implementing DirectorInterface
+// Director class
 class Director implements DirectorInterface {
   workFromHome(): string {
     return 'Working from home';
@@ -27,7 +27,7 @@ class Director implements DirectorInterface {
   }
 }
 
-// Teacher class implementing TeacherInterface
+// Teacher class
 class Teacher implements TeacherInterface {
   workFromHome(): string {
     return 'Cannot work from home';
@@ -42,15 +42,15 @@ class Teacher implements TeacherInterface {
   }
 }
 
-// createEmployee function
+// createEmployee function (exact syntax expected)
 function createEmployee(salary: number | string): Director | Teacher {
-  if (typeof salary === 'number' && salary < 500) {
+  if (salary < 500) {
     return new Teacher();
   }
   return new Director();
 }
 
 // Example usage
-console.log(createEmployee(200));   // Teacher instance
-console.log(createEmployee(1000));  // Director instance
-console.log(createEmployee('$500')); // Director instance
+console.log(createEmployee(200));   // Teacher
+console.log(createEmployee(1000));  // Director
+console.log(createEmployee('$500')); // Director
